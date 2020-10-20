@@ -1,0 +1,65 @@
+// Mixin
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+// Подключения шрифтов
+@include font("OpenSans", "OpenSans-Regular", "400", "normal"); // Имя шрифта, имя файла, вес
+
+
+
+// Setting variables
+$color: #333;
+$main_size: 21px;
+$main_font: OpenSans;
+$size-container: 1170px;
+
+// Style bode
+body{
+	color: $color;
+	font-size: $main_size;
+	font-family: $main_font;
+}
+
+// Style container
+.container{
+	width: $size-container;
+	margin: 0 auto;
+}
+
+// Основные медиа запросы 
+
+@media screen and (max-width: 1200px) {
+	.container{
+		width: 970px;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.container{
+		width: 750px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.container{
+		width: 400px;
+	}
+}
+
+
+@media screen and (max-width: 420px) {
+	.container{
+		width: 100%;
+	}
+}
+
+
+
+
